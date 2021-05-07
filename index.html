@@ -1,6 +1,53 @@
 <!DOCTYPE html>
 <html>
 
+    
+    <body>
+    <div class="wrapper">
+        <div class="display">
+            <div id="time">
+            </div>
+        </div>
+        <span></span>
+        <span></span>
+    </div>
+    <script>
+        setInterval(() => {
+            const time = document.querySelector(".display #time");
+            let date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let day_night = "AM";
+            if (hours > 12) {
+                day_night = "PM";
+                hours = hours - 12;
+            }
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            time.textContent = hours + ":" + minutes + ":" + seconds + " " + day_night;
+        });
+    </script>
+<style>
+    .display #time {
+    line-height: 85px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 1.5s linear infinite;
+        </style>
+</body>
 
 <body>
     <center>
